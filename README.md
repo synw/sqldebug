@@ -11,14 +11,14 @@ Create a soldier node on device:
    import 'package:sqldebug/sqldebug.dart';
 
    String host = await Wifi.ip;
-      final node = SoldierNode(name: "my_node", host: host);
-      await node.init();
-      node.info();
-      node.commandsIn.listen((NodeCommand cmd) {
-         sqlDebugSoldierPlugin()
-           .executeCommand(node: node, command: cmd, parameters: <dynamic>[db]);
+   final node = SoldierNode(name: "my_node", host: host);
+   await node.init();
+   node.info();
+   node.commandsIn.listen((NodeCommand cmd) {
+      sqlDebugSoldierPlugin()
+         .executeCommand(node: node, command: cmd, parameters: <dynamic>[db]);
          /// [db] is a Sqlcool database
-     });
+      });
    ```
 
 Run the plugin: `dart bin/main.dart`
