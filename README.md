@@ -1,6 +1,6 @@
 # Sqldebug
 
-A [Node commander](https://github.com/synw/nodecommander) plugin to run sql queries on device from desktop for debuging. Powered by [Sqlcool](https://github.com/synw/sqlcool) for database management.
+A [Node Commander](https://github.com/synw/nodecommander) plugin to run sql queries on device from desktop for debuging. Powered by [Sqlcool](https://github.com/synw/sqlcool) for database management.
 
 ## Usage
 
@@ -23,7 +23,7 @@ Create a soldier node on device:
 
 Run the plugin: `dart bin/main.dart`
 
-Discover nodes and select you device:
+Discover nodes and select the device to use:
 
    ```
    // autodiscover nodes
