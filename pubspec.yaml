@@ -1,0 +1,12 @@
+name: sqldebug
+description: A new Flutter project.
+version: 0.1.0
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  nodecommander:
+    path: ../../flutter/nodecommander
