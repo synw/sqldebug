@@ -17,6 +17,7 @@ Create a soldier node on device:
       node.commandsIn.listen((NodeCommand cmd) {
          sqlDebugSoldierPlugin()
            .executeCommand(node: node, command: cmd, parameters: <dynamic>[db]);
+         /// [db] is a Sqlcool database
      });
    ```
 
@@ -25,6 +26,7 @@ Run the plugin: `dart bin/main.dart`
 Discover nodes and select you device:
 
    ```
+   // autodiscover nodes
    > /d
    Found soldier my_node at 192.168.1.4:8084
    > /u my_node
