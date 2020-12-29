@@ -7,21 +7,14 @@ A [Node Commander](https://github.com/synw/nodecommander) plugin to run sql quer
 Create a soldier node on device:
 
    ```dart
-   import 'package:wifi/wifi.dart';
+   import 'package:pedantic/pedantic.dart';
    import 'package:sqldebug/sqldebug.dart';
 
-   String host = await Wifi.ip;
-   final node = SoldierNode(name: "my_node", host: host);
-   await node.init();
-   node.info();
-   node.commandsIn.listen((NodeCommand cmd) {
-      sqlDebugSoldierPlugin()
-         .executeCommand(node: node, command: cmd, parameters: <dynamic>[db]);
-         /// [db] is a Sqlcool database
-      });
+   /// [db] is an Sqlcool database
+   unawaited(initSqlDebugSoldierNode(db));
    ```
 
-Run the plugin: `dart bin/main.dart`
+Run the cli in a terminal: `dart bin/main.dart`
 
 Discover nodes and select the device to use:
 
@@ -31,7 +24,7 @@ Discover nodes and select the device to use:
    Found soldier my_node at 192.168.1.4:8084
    > /u my_node
    Using soldier my_node
-   > select kvstore /// This runs a select * from kvstore query
+   > select kvstore /// This runs a "select * from kvstore" query
    ---------------------------------
    id : 1 key : shopping_session value : 2 type : integer updated : 1563453824
    ---------------------------------
