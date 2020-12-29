@@ -3,10 +3,13 @@ description: A new Flutter project.
 version: 0.1.0
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   nodecommander:
-    path: ../../flutter/nodecommander
+    git:
+      url: https://github.com/synw/nodecommander.git
+  sqlcool: ^5.0.0
+  wifi: ^0.1.5
