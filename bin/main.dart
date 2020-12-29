@@ -1,11 +1,47 @@
 import 'package:nodecommander/nodecommander.dart';
-import '../lib/src/plugin.dart';
+import 'package:sqldebug/src/plugin.dart';
 
-void main() {
-  final node = CommanderNode(port: 8085);
-  final cli = NodeCommanderCli();
-  cli.run(node, plugins: <NodeCommanderPlugin>[sqlDebugCommanderPlugin(node)]);
+Future<void> main() async {
+  final node = CommanderNode(
+      name: "sqldebug_cli",
+      commands: sqlDebugCommands(),
+      port: 8085,
+      verbose: true);
+// initialize the node
+  /*await node.init();
+  node.commandsResponse.listen((NodeCommand cmd) {
+    print("${cmd.from} has responded: ${cmd.payload}");
+  });
+// print some info about the node
+  node.info();
+// Wait for the node to be ready to operate
+  await node.onReady;
+  try {
+    unawaited(node.discoverNodes());
+  } catch (e) {
+    rethrow;
+  }
+
+  await Future<dynamic>.delayed(const Duration(seconds: 2));
+  print("Soldiers ${node.soldiers}");
+  for (final s in node.soldiers) {
+    print("Soldier ${s.name} at ${s.address}");
+  } */
+  // cli
+  try {
+    final cli = NodeCommanderCli(node);
+    cli.run();
+    /* unawaited(node.discoverNodes());
+    await Future<dynamic>.delayed(const Duration(seconds: 2));
+    print("Soldiers ${node.soldiers}");
+    for (final s in node.soldiers) {
+      print("Soldier ${s.name} at ${s.address}");
+    }*/
+  } catch (e) {
+    rethrow;
+  }
 }
+
 /*
 void main2(List<String> args) async {
   if (args.isEmpty) {
