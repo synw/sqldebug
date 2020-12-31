@@ -24,15 +24,16 @@ Future<NodeCommand> execSelect(NodeCommand cmd) async {
 
 NodeCommand selectCmd = selectCommand().copyWithExecMethods(exec: execSelect);
 
-Future<void> initSqlDebugSoldierNode(Db db) async {
+Future<void> initSqlDebugSoldierNode(Db db, String key) async {
   final host = await Wifi.ip;
   final sc = selectCmd.copyWithArguments(<dynamic>[db]);
   final node = SoldierNode(
+      key: key,
       name: "sqldebug_soldier",
       commands: <NodeCommand>[sc],
       host: host,
       verbose: true);
-  node.commands[0].info();
+  //node.commands[0].info();
   // initialize the node
   await node.init();
   // print some info about the node

@@ -8,8 +8,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nodecommander:
-    git:
-      url: https://github.com/synw/nodecommander.git
-  sqlcool: ^5.0.0
+  nodecommander: ^0.1.0
+  sqlcool: ^5.1.0
   wifi: ^0.1.5
